@@ -150,7 +150,9 @@ function Index() {
               <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
                 Dr. Jack M. Harless
               </h1>
-              <p className="mt-3 font-heading text-lg font-medium text-primary sm:text-xl">BS, DC</p>
+              <p className="mt-3 font-heading text-lg font-medium text-primary sm:text-xl">
+                BS, DC
+              </p>
 
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-balance">
                 Third-generation chiropractor helping Centerville families live with greater
@@ -296,7 +298,10 @@ function Index() {
         </section>
 
         {/* Approach / Services */}
-        <section id="approach" className="section-padding border-t border-border/60 bg-secondary/40">
+        <section
+          id="approach"
+          className="section-padding border-t border-border/60 bg-secondary/40"
+        >
           <div className="container-tight">
             <div className="mx-auto max-w-3xl text-center">
               <Badge variant="secondary" className="mb-4">
@@ -338,7 +343,9 @@ function Index() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="font-heading text-lg">Rehabilitative Qigong & Tai Chi</CardTitle>
+                  <CardTitle className="font-heading text-lg">
+                    Rehabilitative Qigong & Tai Chi
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
