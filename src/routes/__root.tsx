@@ -77,19 +77,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Dr. Jack M. Harless | Holten Wellness Center" },
+      {
+        name: "description",
+        content:
+          "Dr. Jack M. Harless is a third-generation chiropractor serving Centerville at Holten Wellness Center. Chiropractic care, physical therapy, rehabilitative Qigong & Tai Chi, and wellness education.",
+      },
+      { name: "author", content: "Holten Wellness Center" },
+      { property: "og:title", content: "Dr. Jack M. Harless | Holten Wellness Center" },
+      {
+        property: "og:description",
+        content:
+          "Experienced chiropractic care, physical therapy, and wellness education in Centerville, Ohio.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@HoltenWellness" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
