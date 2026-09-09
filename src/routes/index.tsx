@@ -14,11 +14,11 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
+import jackAsset from "@/assets/jack-harless.png.asset.json";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import jackAsset from "@/assets/jack-harless.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,6 +41,26 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+const localBusinessLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  name: "Holten Wellness Center",
+  medicalSpecialty: "Chiropractic",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Centerville",
+    addressRegion: "OH",
+    addressCountry: "US",
+  },
+  employee: {
+    "@type": "Physician",
+    name: "Dr. Jack M. Harless",
+    jobTitle: "Treating Physician",
+    alumniOf: ["Logan University", "Logan College of Chiropractic"],
+    knowsAbout: ["Chiropractic", "Physical Therapy", "Qigong", "Tai Chi", "Wellness Education"],
+  },
+};
 
 const navLinks = [
   { label: "About", to: "#about" },
@@ -130,9 +150,7 @@ function Index() {
               <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
                 Dr. Jack M. Harless
               </h1>
-              <p className="mt-3 font-heading text-lg font-medium text-primary sm:text-xl">
-                BS, DC
-              </p>
+              <p className="mt-3 font-heading text-lg font-medium text-primary sm:text-xl">BS, DC</p>
 
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-balance">
                 Third-generation chiropractor helping Centerville families live with greater
@@ -392,6 +410,11 @@ function Index() {
           </div>
         </section>
       </main>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }}
+      />
 
       <Separator />
 
