@@ -66,7 +66,7 @@ const navLinks = [
   { label: "About", to: "#about" },
   { label: "Credentials", to: "#credentials" },
   { label: "Approach", to: "#approach" },
-  { label: "Contact", to: "#contact" },
+  { label: "Request Appointment", to: "/request-appointment" },
 ];
 
 function Index() {
