@@ -85,17 +85,27 @@ function Index() {
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.to}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.to.startsWith("#") ? (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <Button asChild size="sm" className="ml-3">
-              <a href="#contact">Schedule a Visit</a>
+              <Link to="/request-appointment">Schedule a Visit</Link>
             </Button>
           </nav>
 
