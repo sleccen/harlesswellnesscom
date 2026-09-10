@@ -182,10 +182,10 @@ function Index() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="min-w-[10rem]">
-                  <a href="#contact">
+                  <Link to="/request-appointment">
                     <Calendar className="h-4 w-4" />
                     Schedule a Visit
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="min-w-[10rem]">
                   <a href="#credentials">View Credentials</a>
