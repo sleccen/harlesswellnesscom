@@ -127,20 +127,31 @@ function Index() {
         {mobileMenuOpen && (
           <div className="border-t border-border/60 md:hidden">
             <nav className="container-tight flex flex-col gap-1 py-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.to}
-                  className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.to.startsWith("#") ? (
+                  <a
+                    key={link.label}
+                    href={link.to}
+                    className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    to={link.to}
+                    className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
               <Button asChild className="mt-2 w-full">
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/request-appointment" onClick={() => setMobileMenuOpen(false)}>
                   Schedule a Visit
-                </a>
+                </Link>
               </Button>
             </nav>
           </div>
