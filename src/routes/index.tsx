@@ -418,10 +418,10 @@ function Index() {
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" variant="secondary" className="min-w-[12rem]">
-                  <a href="#contact">
+                  <Link to="/request-appointment">
                     <Calendar className="h-4 w-4" />
                     Request an Appointment
-                  </a>
+                  </Link>
                 </Button>
               </div>
               <div className="mt-8 flex flex-col items-center justify-center gap-2 text-sm text-primary-foreground/80 sm:flex-row sm:gap-6">
