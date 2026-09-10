@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dr. Jack M. Harless | Holten Wellness Center" },
+      { title: "Dr. Jack M. Harless | Harless Wellness" },
       {
         name: "description",
         content:
-          "Dr. Jack M. Harless is a third-generation chiropractor serving Centerville at Holten Wellness Center. Chiropractic care, physical therapy, rehabilitative Qigong & Tai Chi, and wellness education.",
+          "Dr. Jack M. Harless is a third-generation chiropractor serving Centerville at Harless Wellness. Chiropractic care, physical therapy, rehabilitative Qigong & Tai Chi, and wellness education.",
       },
-      { name: "author", content: "Holten Wellness Center" },
-      { property: "og:title", content: "Dr. Jack M. Harless | Holten Wellness Center" },
+      { name: "author", content: "Harless Wellness" },
+      { property: "og:title", content: "Dr. Jack M. Harless | Harless Wellness" },
       {
         property: "og:description",
         content:
