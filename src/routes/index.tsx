@@ -66,7 +66,7 @@ const navLinks = [
   { label: "About", to: "#about" },
   { label: "Credentials", to: "#credentials" },
   { label: "Approach", to: "#approach" },
-  { label: "Contact", to: "#contact" },
+  { label: "Request Appointment", to: "/request-appointment" },
 ];
 
 function Index() {
@@ -85,17 +85,27 @@ function Index() {
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.to}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.to.startsWith("#") ? (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <Button asChild size="sm" className="ml-3">
-              <a href="#contact">Schedule a Visit</a>
+              <Link to="/request-appointment">Schedule a Visit</Link>
             </Button>
           </nav>
 
@@ -117,20 +127,31 @@ function Index() {
         {mobileMenuOpen && (
           <div className="border-t border-border/60 md:hidden">
             <nav className="container-tight flex flex-col gap-1 py-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.to}
-                  className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.to.startsWith("#") ? (
+                  <a
+                    key={link.label}
+                    href={link.to}
+                    className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    to={link.to}
+                    className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
               <Button asChild className="mt-2 w-full">
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/request-appointment" onClick={() => setMobileMenuOpen(false)}>
                   Schedule a Visit
-                </a>
+                </Link>
               </Button>
             </nav>
           </div>
@@ -161,10 +182,10 @@ function Index() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="min-w-[10rem]">
-                  <a href="#contact">
+                  <Link to="/request-appointment">
                     <Calendar className="h-4 w-4" />
                     Schedule a Visit
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="min-w-[10rem]">
                   <a href="#credentials">View Credentials</a>
@@ -397,10 +418,10 @@ function Index() {
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" variant="secondary" className="min-w-[12rem]">
-                  <a href="#contact">
+                  <Link to="/request-appointment">
                     <Calendar className="h-4 w-4" />
                     Request an Appointment
-                  </a>
+                  </Link>
                 </Button>
               </div>
               <div className="mt-8 flex flex-col items-center justify-center gap-2 text-sm text-primary-foreground/80 sm:flex-row sm:gap-6">
