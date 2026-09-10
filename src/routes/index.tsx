@@ -27,13 +27,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Dr. Jack M. Harless, BS, DC, is a third-generation chiropractor and treating physician at Holten Wellness Center in Centerville, Ohio.",
+          "Dr. Jack M. Harless, BS, DC, is a third-generation chiropractor and treating physician at Harless Wellness in Centerville, Ohio.",
       },
       { property: "og:title", content: "Dr. Jack M. Harless | Chiropractic Care in Centerville" },
       {
         property: "og:description",
         content:
-          "Chiropractic care, physical therapy, rehabilitative Qigong & Tai Chi, and wellness education at Holten Wellness Center.",
+          "Chiropractic care, physical therapy, rehabilitative Qigong & Tai Chi, and wellness education at Harless Wellness.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -45,7 +45,7 @@ export const Route = createFileRoute("/")({
 const localBusinessLd = {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
-  name: "Holten Wellness Center",
+  name: "Harless Wellness",
   medicalSpecialty: "Chiropractic",
   address: {
     "@type": "PostalAddress",
@@ -80,7 +80,7 @@ function Index() {
           <Link to="/" className="flex items-center gap-2">
             <HeartPulse className="h-6 w-6 text-primary" aria-hidden="true" />
             <span className="font-heading text-lg font-semibold tracking-tight text-foreground">
-              Holten Wellness
+              Harless Wellness
             </span>
           </Link>
 
@@ -175,7 +175,7 @@ function Index() {
                 <div className="relative mx-auto aspect-square w-64 overflow-hidden rounded-full border-4 border-background bg-secondary shadow-2xl shadow-primary/10 sm:w-72">
                   <img
                     src={jackAsset.url}
-                    alt="Dr. Jack M. Harless, treating physician at Holten Wellness Center"
+                    alt="Dr. Jack M. Harless, treating physician at Harless Wellness"
                     className="h-full w-full object-cover"
                     width={576}
                     height={576}
@@ -393,7 +393,7 @@ function Index() {
                 Ready to take the next step in your wellness journey?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-primary-foreground/90 text-balance">
-                Contact Holten Wellness Center to schedule an appointment with Dr. Jack M. Harless.
+                Contact Harless Wellness to schedule an appointment with Dr. Jack M. Harless.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" variant="secondary" className="min-w-[12rem]">
@@ -410,7 +410,7 @@ function Index() {
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <Phone className="h-4 w-4" aria-hidden="true" />
-                  Holten Wellness Center
+                  Harless Wellness
                 </span>
               </div>
             </div>
@@ -432,7 +432,7 @@ function Index() {
             <div className="flex items-center gap-2">
               <HeartPulse className="h-5 w-5 text-primary" aria-hidden="true" />
               <span className="font-heading font-semibold tracking-tight text-foreground">
-                Holten Wellness Center
+                Harless Wellness
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
