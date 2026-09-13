@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import jackAsset from "@/assets/drjackpic.jpg.asset.json";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -195,7 +194,7 @@ function Index() {
               <div className="mt-12 w-full max-w-xs">
                 <div className="relative mx-auto aspect-square w-64 overflow-hidden rounded-full border-4 border-background bg-secondary shadow-2xl shadow-primary/10 sm:w-72">
                   <img
-                    src={jackAsset.url}
+                    src="/drjackpic.jpg"
                     alt="Dr. Jack M. Harless, treating physician at Harless Wellness"
                     className="h-full w-full object-cover"
                     width={576}
