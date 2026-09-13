@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import jackAsset from "@/assets/drjackpic.jpg.asset.json";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
