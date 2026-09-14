@@ -192,9 +192,7 @@ function Index() {
                 </Button>
               </div>
 
-              <SpineDivider className="mt-10 w-full max-w-2xl" />
-
-              <div className="mt-6 w-full max-w-xs">
+              <div className="mt-12 w-full max-w-xs">
                 <div className="relative mx-auto aspect-square w-64 overflow-hidden rounded-full border-4 border-background bg-secondary shadow-2xl shadow-primary/10 sm:w-72">
                   <img
                     src="/drjackpic.jpg"
