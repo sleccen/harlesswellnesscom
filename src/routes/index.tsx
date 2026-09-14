@@ -219,25 +219,38 @@ function Index() {
               </h2>
             </div>
 
-            <div className="mx-auto mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
-              <p>
-                Dr. Jack M. Harless is a 1993 graduate of Centerville High School and currently
-                resides there with his wife, Julie, and their four children: Olivia, Anna, Elias,
-                and Emmry. As a third-generation chiropractor, he grew up with vitalistic and
-                wellness concepts and is passionate about helping others implement the wellness
-                lifestyle.
-              </p>
-              <p>
-                He graduated from Logan University with a BS in Life Sciences and earned his
-                Doctorate of Chiropractic from Logan College of Chiropractic in St. Louis, Missouri.
-                Dr. Harless also holds a license to practice physical therapy from the State Board
-                of Ohio.
-              </p>
-              <p>
-                In his free time, you can find Dr. Harless coaching for Centerville High School
-                Varsity Lacrosse.
-              </p>
+            <div className="mx-auto mt-10 grid max-w-5xl items-center gap-10 lg:grid-cols-2">
+              <div className="overflow-hidden rounded-2xl border border-border shadow-lg">
+                <img
+                  src="/chiropractic-care.jpg"
+                  alt="Chiropractor performing a gentle spinal adjustment on a patient"
+                  className="h-full w-full object-cover"
+                  width={1280}
+                  height={854}
+                  loading="lazy"
+                />
+              </div>
+              <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
+                <p>
+                  Dr. Jack M. Harless is a 1993 graduate of Centerville High School and currently
+                  resides there with his wife, Julie, and their four children: Olivia, Anna, Elias,
+                  and Emmry. As a third-generation chiropractor, he grew up with vitalistic and
+                  wellness concepts and is passionate about helping others implement the wellness
+                  lifestyle.
+                </p>
+                <p>
+                  He graduated from Logan University with a BS in Life Sciences and earned his
+                  Doctorate of Chiropractic from Logan College of Chiropractic in St. Louis,
+                  Missouri. Dr. Harless also holds a license to practice physical therapy from the
+                  State Board of Ohio.
+                </p>
+                <p>
+                  In his free time, you can find Dr. Harless coaching for Centerville High School
+                  Varsity Lacrosse.
+                </p>
+              </div>
             </div>
+
           </div>
         </section>
 
@@ -314,6 +327,18 @@ function Index() {
                 </CardContent>
               </Card>
             </div>
+
+            <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl border border-border shadow-lg">
+              <img
+                src="/qigong-taichi.jpg"
+                alt="Group practicing rehabilitative Qigong and Tai Chi movements in a sunlit studio"
+                className="h-full w-full object-cover"
+                width={1280}
+                height={854}
+                loading="lazy"
+              />
+            </div>
+
           </div>
         </section>
 
@@ -336,7 +361,19 @@ function Index() {
               </p>
             </div>
 
+            <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl border border-border shadow-lg">
+              <img
+                src="/physical-therapy.jpg"
+                alt="Therapist guiding a patient through a rehabilitative shoulder stretch"
+                className="h-full w-full object-cover"
+                width={1280}
+                height={854}
+                loading="lazy"
+              />
+            </div>
+
             <div className="mt-12 grid gap-6 md:grid-cols-2">
+
               <Card>
                 <CardHeader>
                   <CardTitle className="font-heading text-lg">Chiropractic Care</CardTitle>
@@ -404,6 +441,23 @@ function Index() {
             </div>
           </div>
         </section>
+
+        {/* Clinic */}
+        <section className="section-padding">
+          <div className="container-tight">
+            <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border shadow-lg">
+              <img
+                src="/clinic-interior.jpg"
+                alt="Calm modern chiropractic treatment room with adjustment table and plants"
+                className="h-full w-full object-cover"
+                width={1280}
+                height={854}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
 
         {/* Contact CTA */}
         <section id="contact" className="section-padding">
