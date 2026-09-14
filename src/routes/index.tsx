@@ -442,6 +442,23 @@ function Index() {
           </div>
         </section>
 
+        {/* Clinic */}
+        <section className="section-padding">
+          <div className="container-tight">
+            <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border shadow-lg">
+              <img
+                src="/clinic-interior.jpg"
+                alt="Calm modern chiropractic treatment room with adjustment table and plants"
+                className="h-full w-full object-cover"
+                width={1280}
+                height={854}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+
         {/* Contact CTA */}
         <section id="contact" className="section-padding">
           <div className="container-tight">
