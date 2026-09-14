@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SpineDivider } from "@/components/SpineDivider";
 import {
   Award,
   BookOpen,
