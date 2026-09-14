@@ -327,6 +327,18 @@ function Index() {
                 </CardContent>
               </Card>
             </div>
+
+            <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl border border-border shadow-lg">
+              <img
+                src="/qigong-taichi.jpg"
+                alt="Group practicing rehabilitative Qigong and Tai Chi movements in a sunlit studio"
+                className="h-full w-full object-cover"
+                width={1280}
+                height={854}
+                loading="lazy"
+              />
+            </div>
+
           </div>
         </section>
 
