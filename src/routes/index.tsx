@@ -219,25 +219,38 @@ function Index() {
               </h2>
             </div>
 
-            <div className="mx-auto mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
-              <p>
-                Dr. Jack M. Harless is a 1993 graduate of Centerville High School and currently
-                resides there with his wife, Julie, and their four children: Olivia, Anna, Elias,
-                and Emmry. As a third-generation chiropractor, he grew up with vitalistic and
-                wellness concepts and is passionate about helping others implement the wellness
-                lifestyle.
-              </p>
-              <p>
-                He graduated from Logan University with a BS in Life Sciences and earned his
-                Doctorate of Chiropractic from Logan College of Chiropractic in St. Louis, Missouri.
-                Dr. Harless also holds a license to practice physical therapy from the State Board
-                of Ohio.
-              </p>
-              <p>
-                In his free time, you can find Dr. Harless coaching for Centerville High School
-                Varsity Lacrosse.
-              </p>
+            <div className="mx-auto mt-10 grid max-w-5xl items-center gap-10 lg:grid-cols-2">
+              <div className="overflow-hidden rounded-2xl border border-border shadow-lg">
+                <img
+                  src="/chiropractic-care.jpg"
+                  alt="Chiropractor performing a gentle spinal adjustment on a patient"
+                  className="h-full w-full object-cover"
+                  width={1280}
+                  height={854}
+                  loading="lazy"
+                />
+              </div>
+              <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
+                <p>
+                  Dr. Jack M. Harless is a 1993 graduate of Centerville High School and currently
+                  resides there with his wife, Julie, and their four children: Olivia, Anna, Elias,
+                  and Emmry. As a third-generation chiropractor, he grew up with vitalistic and
+                  wellness concepts and is passionate about helping others implement the wellness
+                  lifestyle.
+                </p>
+                <p>
+                  He graduated from Logan University with a BS in Life Sciences and earned his
+                  Doctorate of Chiropractic from Logan College of Chiropractic in St. Louis,
+                  Missouri. Dr. Harless also holds a license to practice physical therapy from the
+                  State Board of Ohio.
+                </p>
+                <p>
+                  In his free time, you can find Dr. Harless coaching for Centerville High School
+                  Varsity Lacrosse.
+                </p>
+              </div>
             </div>
+
           </div>
         </section>
 
