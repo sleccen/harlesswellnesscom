@@ -361,7 +361,19 @@ function Index() {
               </p>
             </div>
 
+            <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl border border-border shadow-lg">
+              <img
+                src="/physical-therapy.jpg"
+                alt="Therapist guiding a patient through a rehabilitative shoulder stretch"
+                className="h-full w-full object-cover"
+                width={1280}
+                height={854}
+                loading="lazy"
+              />
+            </div>
+
             <div className="mt-12 grid gap-6 md:grid-cols-2">
+
               <Card>
                 <CardHeader>
                   <CardTitle className="font-heading text-lg">Chiropractic Care</CardTitle>
