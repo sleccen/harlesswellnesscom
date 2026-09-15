@@ -139,6 +139,14 @@ function Index() {
           </button>
         </div>
 
+        <div className="h-20 w-full border-t border-border/40 md:hidden" aria-hidden="true">
+          <ClientOnly fallback={null}>
+            <SpineScene />
+          </ClientOnly>
+        </div>
+
+
+
         {mobileMenuOpen && (
           <div className="border-t border-border/60 md:hidden">
             <nav className="container-tight flex flex-col gap-1 py-3">
