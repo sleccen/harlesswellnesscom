@@ -90,7 +90,7 @@ function Index() {
           </Link>
 
           <div
-            className="ml-4 h-16 min-w-0 flex-1 sm:ml-8 sm:h-24"
+            className="ml-4 h-24 min-w-0 flex-1 sm:ml-8 sm:h-36"
             aria-hidden="true"
           >
             <ClientOnly fallback={null}>
