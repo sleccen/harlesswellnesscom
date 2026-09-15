@@ -90,14 +90,13 @@ function Index() {
           </Link>
 
           <div
-            className="ml-4 hidden h-24 min-w-0 flex-1 md:block md:h-28"
+            className="ml-4 h-16 min-w-0 flex-1 sm:ml-8 sm:h-24"
             aria-hidden="true"
           >
             <ClientOnly fallback={null}>
               <SpineScene />
             </ClientOnly>
           </div>
-
 
           <nav className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) =>
@@ -138,14 +137,6 @@ function Index() {
             )}
           </button>
         </div>
-
-        <div className="h-20 w-full border-t border-border/40 md:hidden" aria-hidden="true">
-          <ClientOnly fallback={null}>
-            <SpineScene />
-          </ClientOnly>
-        </div>
-
-
 
         {mobileMenuOpen && (
           <div className="border-t border-border/60 md:hidden">
