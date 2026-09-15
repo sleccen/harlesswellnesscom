@@ -89,6 +89,15 @@ function Index() {
             </span>
           </Link>
 
+          <div
+            className="ml-4 h-14 w-28 shrink-0 sm:ml-8 sm:w-40"
+            aria-hidden="true"
+          >
+            <ClientOnly fallback={null}>
+              <SpineScene />
+            </ClientOnly>
+          </div>
+
           <nav className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) =>
               link.to.startsWith("#") ? (
