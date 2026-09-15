@@ -1,4 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { ClientOnly, createFileRoute, Link } from "@tanstack/react-router";
+import { lazy } from "react";
+
+const SpineScene = lazy(() =>
+  import("@/components/SpineScene").then((m) => ({ default: m.SpineScene }))
+);
 
 import {
   Award,
