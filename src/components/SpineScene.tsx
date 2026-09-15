@@ -31,8 +31,10 @@ function SpineModel() {
   });
 
   return (
-    <group ref={group} rotation={[0, 0, Math.PI / 2]}>
-      <primitive object={scene.current} />
+    <group rotation={[0, 0, Math.PI / 2]}>
+      <group ref={group}>
+        <primitive object={scene.current} />
+      </group>
     </group>
   );
 }
