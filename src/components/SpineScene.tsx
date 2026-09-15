@@ -19,10 +19,10 @@ function SpineModel() {
     box.getCenter(center);
     cloned.position.sub(center);
     const maxAxis = Math.max(size.x, size.y, size.z) || 1;
-    const scale = 2 / maxAxis;
+    const scale = 3.4 / maxAxis;
     cloned.scale.setScalar(scale);
     // stretch along the model's longest axis so the spine spans the banner
-    const stretch = 1.9;
+    const stretch = 2.4;
     if (size.x >= size.y && size.x >= size.z) cloned.scale.x *= stretch;
     else if (size.y >= size.z) cloned.scale.y *= stretch;
     else cloned.scale.z *= stretch;
@@ -47,7 +47,7 @@ function SpineModel() {
 export function SpineScene() {
   return (
     <Canvas
-      camera={{ position: [0, 0, 3.4], fov: 60 }}
+      camera={{ position: [0, 0, 2.6], fov: 60 }}
       dpr={[1, 2]}
       gl={{ alpha: true, antialias: true }}
       style={{ pointerEvents: "none" }}
