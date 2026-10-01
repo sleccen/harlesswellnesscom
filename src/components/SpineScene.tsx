@@ -27,12 +27,17 @@ function SpineModel() {
     else if (size.y >= size.z) cloned.scale.y *= stretch;
     else cloned.scale.z *= stretch;
     scene.current = cloned;
-    console.log("[spine debug]", size.toArray(), "scale", cloned.scale.toArray(), "center", center.toArray(), "children", cloned.children.length, "materials", cloned.material ? "-" : "multi");
+    // The uploaded model ships with plain white materials — tint to the
+    // Navy Trust palette: vertebrae in primary, discs a shade lighter.
     cloned.traverse((o) => {
-      if ((o as THREE.Mesh).isMesh) {
-        const m = (o as THREE.Mesh).material as THREE.MeshStandardMaterial;
-        console.log("[spine mesh]", o.name, m?.type, "color", m?.color?.getHexString(), "transparent", m?.transparent, "opacity", m?.opacity);
-      }
+      const mesh = o as THREE.Mesh;
+      if (!mesh.isMesh) return;
+      const parentName = (mesh.parent?.name ?? "").toLowerCase();
+      const isDisk = parentName.includes("disk");
+      const mat = mesh.material as THREE.MeshStandardMaterial;
+      mat.color.set(isDisk ? 0x5a4a94 : 0x392962);
+      mat.metalness = 0.15;
+      mat.roughness = 0.45;
     });
   }
 
