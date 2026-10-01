@@ -17,15 +17,17 @@ function SpineModel() {
     const center = new THREE.Vector3();
     box.getSize(size);
     box.getCenter(center);
-    cloned.position.sub(center);
     const maxAxis = Math.max(size.x, size.y, size.z) || 1;
     const scale = 3.4 / maxAxis;
-    cloned.scale.setScalar(scale);
     // stretch along the model's longest axis so the spine spans the banner
     const stretch = 2.4;
+    cloned.scale.setScalar(scale);
     if (size.x >= size.y && size.x >= size.z) cloned.scale.x *= stretch;
     else if (size.y >= size.z) cloned.scale.y *= stretch;
     else cloned.scale.z *= stretch;
+    // Center the model: the offset must be applied in world units, i.e.
+    // scaled — the model's own origin can sit far away (this one is ~22 units off).
+    cloned.position.set(-center.x * scale, -center.y * scale, -center.z * scale);
     scene.current = cloned;
     // The uploaded model ships with plain white materials — tint to the
     // Navy Trust palette: vertebrae in primary, discs a shade lighter.
