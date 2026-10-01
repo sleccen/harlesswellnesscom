@@ -27,6 +27,13 @@ function SpineModel() {
     else if (size.y >= size.z) cloned.scale.y *= stretch;
     else cloned.scale.z *= stretch;
     scene.current = cloned;
+    console.log("[spine debug]", size.toArray(), "scale", cloned.scale.toArray(), "center", center.toArray(), "children", cloned.children.length, "materials", cloned.material ? "-" : "multi");
+    cloned.traverse((o) => {
+      if ((o as THREE.Mesh).isMesh) {
+        const m = (o as THREE.Mesh).material as THREE.MeshStandardMaterial;
+        console.log("[spine mesh]", o.name, m?.type, "color", m?.color?.getHexString(), "transparent", m?.transparent, "opacity", m?.opacity);
+      }
+    });
   }
 
   useFrame(() => {
