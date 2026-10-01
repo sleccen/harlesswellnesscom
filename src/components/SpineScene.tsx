@@ -21,13 +21,18 @@ function SpineModel() {
     const scale = 3.4 / maxAxis;
     // stretch along the model's longest axis so the spine spans the banner
     const stretch = 2.4;
-    cloned.scale.setScalar(scale);
-    if (size.x >= size.y && size.x >= size.z) cloned.scale.x *= stretch;
-    else if (size.y >= size.z) cloned.scale.y *= stretch;
-    else cloned.scale.z *= stretch;
-    // Center the model: the offset must be applied in world units, i.e.
-    // scaled — the model's own origin can sit far away (this one is ~22 units off).
-    cloned.position.set(-center.x * scale, -center.y * scale, -center.z * scale);
+    const axisScale: [number, number, number] = [scale, scale, scale];
+    if (size.x >= size.y && size.x >= size.z) axisScale[0] *= stretch;
+    else if (size.y >= size.z) axisScale[1] *= stretch;
+    else axisScale[2] *= stretch;
+    cloned.scale.set(axisScale[0], axisScale[1], axisScale[2]);
+    // Center the model: per-axis offsets in world units (the model's own
+    // origin can sit far away — this one is ~22 units off center).
+    cloned.position.set(
+      -center.x * axisScale[0],
+      -center.y * axisScale[1],
+      -center.z * axisScale[2],
+    );
     scene.current = cloned;
     // The uploaded model ships with plain white materials — tint to the
     // Navy Trust palette: vertebrae in primary, discs a shade lighter.
