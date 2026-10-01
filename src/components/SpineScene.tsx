@@ -3,7 +3,7 @@ import { Suspense, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-import spineAsset from "@/assets/spine.glb.asset.json";
+import spineAsset from "@/assets/spine2.glb.asset.json";
 
 function SpineModel() {
   const gltf = useLoader(GLTFLoader, spineAsset.url);
