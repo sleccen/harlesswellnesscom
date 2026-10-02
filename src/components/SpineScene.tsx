@@ -1,12 +1,12 @@
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { Suspense, useRef } from "react";
+import { Component, Suspense, useRef, type ReactNode } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-import spineAsset from "@/assets/spine2.glb.asset.json";
+const SPINE_URL = "/spine.glb";
 
 function SpineModel() {
-  const gltf = useLoader(GLTFLoader, spineAsset.url);
+  const gltf = useLoader(GLTFLoader, SPINE_URL);
   const group = useRef<THREE.Group>(null);
   const scene = useRef<THREE.Object3D | null>(null);
 
@@ -63,21 +63,45 @@ function SpineModel() {
   );
 }
 
+// If the GLB fails to load (404, network error, corrupt file), swallow the
+// error and render nothing so the rest of the page keeps working.
+class SpineErrorBoundary extends Component<
+  { children: ReactNode },
+  { failed: boolean }
+> {
+  override state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  override componentDidCatch(error: unknown) {
+    console.warn("Spine model failed to load; hiding banner graphic.", error);
+  }
+
+  override render() {
+    if (this.state.failed) return null;
+    return this.props.children;
+  }
+}
+
 export function SpineScene() {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 2.6], fov: 60 }}
-      dpr={[1, 2]}
-      gl={{ alpha: true, antialias: true }}
-      style={{ pointerEvents: "none" }}
-    >
-      <ambientLight intensity={1.1} />
-      <directionalLight position={[2, 3, 4]} intensity={1.6} />
-      <directionalLight position={[-3, -2, -2]} intensity={0.5} />
-      <Suspense fallback={null}>
-        <SpineModel />
-      </Suspense>
-    </Canvas>
+    <SpineErrorBoundary>
+      <Canvas
+        camera={{ position: [0, 0, 2.6], fov: 60 }}
+        dpr={[1, 2]}
+        gl={{ alpha: true, antialias: true }}
+        style={{ pointerEvents: "none" }}
+      >
+        <ambientLight intensity={1.1} />
+        <directionalLight position={[2, 3, 4]} intensity={1.6} />
+        <directionalLight position={[-3, -2, -2]} intensity={0.5} />
+        <Suspense fallback={null}>
+          <SpineModel />
+        </Suspense>
+      </Canvas>
+    </SpineErrorBoundary>
   );
 }
 
