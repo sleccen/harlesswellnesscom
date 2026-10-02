@@ -3,7 +3,7 @@ import { Component, Suspense, useRef, type ReactNode } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-const SPINE_URL = "/spine.glb";
+const SPINE_URL = "/spine_collection_of_thunthu.glb";
 
 function SpineModel() {
   const gltf = useLoader(GLTFLoader, SPINE_URL);
@@ -34,18 +34,6 @@ function SpineModel() {
       -center.z * axisScale[2],
     );
     scene.current = cloned;
-    // The uploaded model ships with plain white materials — tint to the
-    // Navy Trust palette: vertebrae in primary, discs a shade lighter.
-    cloned.traverse((o) => {
-      const mesh = o as THREE.Mesh;
-      if (!mesh.isMesh) return;
-      const parentName = (mesh.parent?.name ?? "").toLowerCase();
-      const isDisk = parentName.includes("disk");
-      const mat = mesh.material as THREE.MeshStandardMaterial;
-      mat.color.set(isDisk ? 0x5a4a94 : 0x392962);
-      mat.metalness = 0.15;
-      mat.roughness = 0.45;
-    });
   }
 
   useFrame(() => {
