@@ -75,11 +75,11 @@ class SpineErrorBoundary extends Component<
     return { failed: true };
   }
 
-  componentDidCatch(error: unknown) {
+  override componentDidCatch(error: unknown) {
     console.warn("Spine model failed to load; hiding banner graphic.", error);
   }
 
-  render() {
+  override render() {
     if (this.state.failed) return null;
     return this.props.children;
   }
