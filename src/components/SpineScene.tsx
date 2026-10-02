@@ -1,4 +1,4 @@
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Component, Suspense, useRef, type ReactNode } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -7,34 +7,23 @@ const SPINE_URL = "/spine_collection_of_thunthu.glb";
 
 function SpineModel() {
   const gltf = useLoader(GLTFLoader, SPINE_URL);
+  const viewportWidth = useThree((state) => state.viewport.width);
   const group = useRef<THREE.Group>(null);
-  const scene = useRef<THREE.Object3D | null>(null);
-
-  if (!scene.current) {
-    const cloned = gltf.scene.clone(true);
-    const box = new THREE.Box3().setFromObject(cloned);
-    const size = new THREE.Vector3();
-    const center = new THREE.Vector3();
-    box.getSize(size);
-    box.getCenter(center);
-    const maxAxis = Math.max(size.x, size.y, size.z) || 1;
-    const scale = 3.4 / maxAxis;
-    // stretch along the model's longest axis so the spine spans the banner
-    const stretch = 2.4;
-    const axisScale: [number, number, number] = [scale, scale, scale];
-    if (size.x >= size.y && size.x >= size.z) axisScale[0] *= stretch;
-    else if (size.y >= size.z) axisScale[1] *= stretch;
-    else axisScale[2] *= stretch;
-    cloned.scale.set(axisScale[0], axisScale[1], axisScale[2]);
-    // Center the model: per-axis offsets in world units (the model's own
-    // origin can sit far away — this one is ~22 units off center).
-    cloned.position.set(
-      -center.x * axisScale[0],
-      -center.y * axisScale[1],
-      -center.z * axisScale[2],
-    );
-    scene.current = cloned;
-  }
+  const cloned = gltf.scene.clone(true);
+  const box = new THREE.Box3().setFromObject(cloned);
+  const size = new THREE.Vector3();
+  const center = new THREE.Vector3();
+  box.getSize(size);
+  box.getCenter(center);
+  const maxAxis = Math.max(size.x, size.y, size.z) || 1;
+  // Leave room at both ends, including when the banner narrows on mobile.
+  const scale = (viewportWidth * 0.76) / (maxAxis * 2.4);
+  const axisScale: [number, number, number] = [scale, scale, scale];
+  if (size.x >= size.y && size.x >= size.z) axisScale[0] *= 2.4;
+  else if (size.y >= size.z) axisScale[1] *= 2.4;
+  else axisScale[2] *= 2.4;
+  cloned.scale.set(...axisScale);
+  cloned.position.set(-center.x * axisScale[0], -center.y * axisScale[1], -center.z * axisScale[2]);
 
   useFrame(() => {
     if (!group.current) return;
@@ -45,7 +34,7 @@ function SpineModel() {
   return (
     <group rotation={[0, 0, Math.PI / 2]}>
       <group ref={group}>
-        <primitive object={scene.current} />
+        <primitive object={cloned} />
       </group>
     </group>
   );
