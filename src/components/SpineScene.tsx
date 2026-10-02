@@ -69,7 +69,7 @@ class SpineErrorBoundary extends Component<
   { children: ReactNode },
   { failed: boolean }
 > {
-  state = { failed: false };
+  override state = { failed: false };
 
   static getDerivedStateFromError() {
     return { failed: true };
